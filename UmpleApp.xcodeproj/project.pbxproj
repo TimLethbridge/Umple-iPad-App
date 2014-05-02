@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		163ED675190784B000DDFDF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163ED674190784B000DDFDF5 /* Foundation.framework */; };
+		163ED677190784B000DDFDF5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163ED676190784B000DDFDF5 /* CoreGraphics.framework */; };
+		163ED679190784B000DDFDF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163ED678190784B000DDFDF5 /* UIKit.framework */; };
+		163ED67F190784B000DDFDF5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 163ED67D190784B000DDFDF5 /* InfoPlist.strings */; };
+		163ED681190784B000DDFDF5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 163ED680190784B000DDFDF5 /* main.m */; };
+		163ED685190784B000DDFDF5 /* UmpleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 163ED684190784B000DDFDF5 /* UmpleAppDelegate.m */; };
+		163ED688190784B000DDFDF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163ED686190784B000DDFDF5 /* Main.storyboard */; };
+		163ED68B190784B000DDFDF5 /* UmpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 163ED68A190784B000DDFDF5 /* UmpleViewController.m */; };
+		163ED68D190784B000DDFDF5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 163ED68C190784B000DDFDF5 /* Images.xcassets */; };
+		163ED694190784B000DDFDF5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163ED693190784B000DDFDF5 /* XCTest.framework */; };
+		163ED695190784B000DDFDF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163ED674190784B000DDFDF5 /* Foundation.framework */; };
+		163ED696190784B000DDFDF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163ED678190784B000DDFDF5 /* UIKit.framework */; };
+		163ED69E190784B000DDFDF5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 163ED69C190784B000DDFDF5 /* InfoPlist.strings */; };
+		163ED6A0190784B000DDFDF5 /* UmpleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 163ED69F190784B000DDFDF5 /* UmpleAppTests.m */; };
+		163ED6AB1907866500DDFDF5 /* UmpleClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 163ED6AA1907866500DDFDF5 /* UmpleClass.m */; };
+		163ED6B0190879AE00DDFDF5 /* UmpleAssociation.m in Sources */ = {isa = PBXBuildFile; fileRef = 163ED6AF190879AE00DDFDF5 /* UmpleAssociation.m */; };
+		163ED6B319087A4D00DDFDF5 /* UmpleAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 163ED6B219087A4D00DDFDF5 /* UmpleAttribute.m */; };
+		163ED6B619087BCE00DDFDF5 /* UmpleMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 163ED6B519087BCE00DDFDF5 /* UmpleMethod.m */; };
+		1648D928190AD29C00D459BD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1648D927190AD29C00D459BD /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		163ED697190784B000DDFDF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 163ED669190784B000DDFDF5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 163ED670190784B000DDFDF5;
+			remoteInfo = UmpleApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		163ED671190784B000DDFDF5 /* UmpleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UmpleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		163ED674190784B000DDFDF5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		163ED676190784B000DDFDF5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		163ED678190784B000DDFDF5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		163ED67C190784B000DDFDF5 /* UmpleApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UmpleApp-Info.plist"; sourceTree = "<group>"; };
+		163ED67E190784B000DDFDF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		163ED680190784B000DDFDF5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		163ED682190784B000DDFDF5 /* UmpleApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UmpleApp-Prefix.pch"; sourceTree = "<group>"; };
+		163ED683190784B000DDFDF5 /* UmpleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UmpleAppDelegate.h; sourceTree = "<group>"; };
+		163ED684190784B000DDFDF5 /* UmpleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UmpleAppDelegate.m; sourceTree = "<group>"; };
+		163ED687190784B000DDFDF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		163ED689190784B000DDFDF5 /* UmpleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UmpleViewController.h; sourceTree = "<group>"; };
+		163ED68A190784B000DDFDF5 /* UmpleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UmpleViewController.m; sourceTree = "<group>"; };
+		163ED68C190784B000DDFDF5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		163ED692190784B000DDFDF5 /* UmpleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UmpleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		163ED693190784B000DDFDF5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		163ED69B190784B000DDFDF5 /* UmpleAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UmpleAppTests-Info.plist"; sourceTree = "<group>"; };
+		163ED69D190784B000DDFDF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		163ED69F190784B000DDFDF5 /* UmpleAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UmpleAppTests.m; sourceTree = "<group>"; };
+		163ED6A91907866500DDFDF5 /* UmpleClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmpleClass.h; sourceTree = "<group>"; };
+		163ED6AA1907866500DDFDF5 /* UmpleClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmpleClass.m; sourceTree = "<group>"; };
+		163ED6AE190879AE00DDFDF5 /* UmpleAssociation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmpleAssociation.h; sourceTree = "<group>"; };
+		163ED6AF190879AE00DDFDF5 /* UmpleAssociation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmpleAssociation.m; sourceTree = "<group>"; };
+		163ED6B119087A4D00DDFDF5 /* UmpleAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmpleAttribute.h; sourceTree = "<group>"; };
+		163ED6B219087A4D00DDFDF5 /* UmpleAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmpleAttribute.m; sourceTree = "<group>"; };
+		163ED6B419087BCE00DDFDF5 /* UmpleMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmpleMethod.h; sourceTree = "<group>"; };
+		163ED6B519087BCE00DDFDF5 /* UmpleMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmpleMethod.m; sourceTree = "<group>"; };
+		1648D927190AD29C00D459BD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		163ED66E190784B000DDFDF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1648D928190AD29C00D459BD /* QuartzCore.framework in Frameworks */,
+				163ED677190784B000DDFDF5 /* CoreGraphics.framework in Frameworks */,
+				163ED679190784B000DDFDF5 /* UIKit.framework in Frameworks */,
+				163ED675190784B000DDFDF5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		163ED68F190784B000DDFDF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				163ED694190784B000DDFDF5 /* XCTest.framework in Frameworks */,
+				163ED696190784B000DDFDF5 /* UIKit.framework in Frameworks */,
+				163ED695190784B000DDFDF5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		163ED668190784B000DDFDF5 = {
+			isa = PBXGroup;
+			children = (
+				163ED67A190784B000DDFDF5 /* UmpleApp */,
+				163ED699190784B000DDFDF5 /* UmpleAppTests */,
+				163ED673190784B000DDFDF5 /* Frameworks */,
+				163ED672190784B000DDFDF5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		163ED672190784B000DDFDF5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				163ED671190784B000DDFDF5 /* UmpleApp.app */,
+				163ED692190784B000DDFDF5 /* UmpleAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		163ED673190784B000DDFDF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1648D927190AD29C00D459BD /* QuartzCore.framework */,
+				163ED674190784B000DDFDF5 /* Foundation.framework */,
+				163ED676190784B000DDFDF5 /* CoreGraphics.framework */,
+				163ED678190784B000DDFDF5 /* UIKit.framework */,
+				163ED693190784B000DDFDF5 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		163ED67A190784B000DDFDF5 /* UmpleApp */ = {
+			isa = PBXGroup;
+			children = (
+				163ED683190784B000DDFDF5 /* UmpleAppDelegate.h */,
+				163ED684190784B000DDFDF5 /* UmpleAppDelegate.m */,
+				163ED686190784B000DDFDF5 /* Main.storyboard */,
+				163ED689190784B000DDFDF5 /* UmpleViewController.h */,
+				163ED68A190784B000DDFDF5 /* UmpleViewController.m */,
+				163ED6B119087A4D00DDFDF5 /* UmpleAttribute.h */,
+				163ED6B219087A4D00DDFDF5 /* UmpleAttribute.m */,
+				163ED6B419087BCE00DDFDF5 /* UmpleMethod.h */,
+				163ED6B519087BCE00DDFDF5 /* UmpleMethod.m */,
+				163ED6A91907866500DDFDF5 /* UmpleClass.h */,
+				163ED6AA1907866500DDFDF5 /* UmpleClass.m */,
+				163ED6AE190879AE00DDFDF5 /* UmpleAssociation.h */,
+				163ED6AF190879AE00DDFDF5 /* UmpleAssociation.m */,
+				163ED68C190784B000DDFDF5 /* Images.xcassets */,
+				163ED67B190784B000DDFDF5 /* Supporting Files */,
+			);
+			path = UmpleApp;
+			sourceTree = "<group>";
+		};
+		163ED67B190784B000DDFDF5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				163ED67C190784B000DDFDF5 /* UmpleApp-Info.plist */,
+				163ED67D190784B000DDFDF5 /* InfoPlist.strings */,
+				163ED680190784B000DDFDF5 /* main.m */,
+				163ED682190784B000DDFDF5 /* UmpleApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		163ED699190784B000DDFDF5 /* UmpleAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				163ED69F190784B000DDFDF5 /* UmpleAppTests.m */,
+				163ED69A190784B000DDFDF5 /* Supporting Files */,
+			);
+			path = UmpleAppTests;
+			sourceTree = "<group>";
+		};
+		163ED69A190784B000DDFDF5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				163ED69B190784B000DDFDF5 /* UmpleAppTests-Info.plist */,
+				163ED69C190784B000DDFDF5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		163ED670190784B000DDFDF5 /* UmpleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 163ED6A3190784B000DDFDF5 /* Build configuration list for PBXNativeTarget "UmpleApp" */;
+			buildPhases = (
+				163ED66D190784B000DDFDF5 /* Sources */,
+				163ED66E190784B000DDFDF5 /* Frameworks */,
+				163ED66F190784B000DDFDF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UmpleApp;
+			productName = UmpleApp;
+			productReference = 163ED671190784B000DDFDF5 /* UmpleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		163ED691190784B000DDFDF5 /* UmpleAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 163ED6A6190784B000DDFDF5 /* Build configuration list for PBXNativeTarget "UmpleAppTests" */;
+			buildPhases = (
+				163ED68E190784B000DDFDF5 /* Sources */,
+				163ED68F190784B000DDFDF5 /* Frameworks */,
+				163ED690190784B000DDFDF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				163ED698190784B000DDFDF5 /* PBXTargetDependency */,
+			);
+			name = UmpleAppTests;
+			productName = UmpleAppTests;
+			productReference = 163ED692190784B000DDFDF5 /* UmpleAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		163ED669190784B000DDFDF5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Umple;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Charles;
+				TargetAttributes = {
+					163ED691190784B000DDFDF5 = {
+						TestTargetID = 163ED670190784B000DDFDF5;
+					};
+				};
+			};
+			buildConfigurationList = 163ED66C190784B000DDFDF5 /* Build configuration list for PBXProject "UmpleApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 163ED668190784B000DDFDF5;
+			productRefGroup = 163ED672190784B000DDFDF5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				163ED670190784B000DDFDF5 /* UmpleApp */,
+				163ED691190784B000DDFDF5 /* UmpleAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		163ED66F190784B000DDFDF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				163ED68D190784B000DDFDF5 /* Images.xcassets in Resources */,
+				163ED67F190784B000DDFDF5 /* InfoPlist.strings in Resources */,
+				163ED688190784B000DDFDF5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		163ED690190784B000DDFDF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				163ED69E190784B000DDFDF5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		163ED66D190784B000DDFDF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				163ED6B319087A4D00DDFDF5 /* UmpleAttribute.m in Sources */,
+				163ED6AB1907866500DDFDF5 /* UmpleClass.m in Sources */,
+				163ED6B619087BCE00DDFDF5 /* UmpleMethod.m in Sources */,
+				163ED685190784B000DDFDF5 /* UmpleAppDelegate.m in Sources */,
+				163ED681190784B000DDFDF5 /* main.m in Sources */,
+				163ED68B190784B000DDFDF5 /* UmpleViewController.m in Sources */,
+				163ED6B0190879AE00DDFDF5 /* UmpleAssociation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		163ED68E190784B000DDFDF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				163ED6A0190784B000DDFDF5 /* UmpleAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		163ED698190784B000DDFDF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 163ED670190784B000DDFDF5 /* UmpleApp */;
+			targetProxy = 163ED697190784B000DDFDF5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		163ED67D190784B000DDFDF5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				163ED67E190784B000DDFDF5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		163ED686190784B000DDFDF5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				163ED687190784B000DDFDF5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		163ED69C190784B000DDFDF5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				163ED69D190784B000DDFDF5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		163ED6A1190784B000DDFDF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		163ED6A2190784B000DDFDF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		163ED6A4190784B000DDFDF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UmpleApp/UmpleApp-Prefix.pch";
+				INFOPLIST_FILE = "UmpleApp/UmpleApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		163ED6A5190784B000DDFDF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UmpleApp/UmpleApp-Prefix.pch";
+				INFOPLIST_FILE = "UmpleApp/UmpleApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		163ED6A7190784B000DDFDF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UmpleApp.app/UmpleApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UmpleApp/UmpleApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "UmpleAppTests/UmpleAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		163ED6A8190784B000DDFDF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UmpleApp.app/UmpleApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UmpleApp/UmpleApp-Prefix.pch";
+				INFOPLIST_FILE = "UmpleAppTests/UmpleAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		163ED66C190784B000DDFDF5 /* Build configuration list for PBXProject "UmpleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				163ED6A1190784B000DDFDF5 /* Debug */,
+				163ED6A2190784B000DDFDF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		163ED6A3190784B000DDFDF5 /* Build configuration list for PBXNativeTarget "UmpleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				163ED6A4190784B000DDFDF5 /* Debug */,
+				163ED6A5190784B000DDFDF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		163ED6A6190784B000DDFDF5 /* Build configuration list for PBXNativeTarget "UmpleAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				163ED6A7190784B000DDFDF5 /* Debug */,
+				163ED6A8190784B000DDFDF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 163ED669190784B000DDFDF5 /* Project object */;
+}
