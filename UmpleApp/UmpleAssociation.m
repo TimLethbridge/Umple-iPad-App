@@ -132,13 +132,13 @@
     //NSLog(@"Drawing");
     [super drawRect:rect];
     
-    UIBezierPath *path = [[UIBezierPath alloc] init];
+    /*UIBezierPath *path = [[UIBezierPath alloc] init];
     [path moveToPoint:CGPointMake(self.classOneId.position.origin.x + self.classOneId.position.size.width / 2,
                                   self.classOneId.position.origin.y + self.classOneId.position.size.height / 2)];
     [path addLineToPoint:CGPointMake(self.classTwoId.position.origin.x + self.classTwoId.position.size.width / 2,
                                   self.classTwoId.position.origin.y + self.classTwoId.position.size.height / 2)];
     [path fill];
-    [path stroke];
+    [path stroke];*/
     /*
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);

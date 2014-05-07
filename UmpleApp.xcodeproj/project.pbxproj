@@ -26,6 +26,9 @@
 		163ED6B319087A4D00DDFDF5 /* UmpleAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 163ED6B219087A4D00DDFDF5 /* UmpleAttribute.m */; };
 		163ED6B619087BCE00DDFDF5 /* UmpleMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 163ED6B519087BCE00DDFDF5 /* UmpleMethod.m */; };
 		1648D928190AD29C00D459BD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1648D927190AD29C00D459BD /* QuartzCore.framework */; };
+		169B7A001918734C00EE32D3 /* UmpleMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 169B79FF1918734C00EE32D3 /* UmpleMenuView.xib */; };
+		169B7A0319188A2200EE32D3 /* UmpleModelMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 169B7A0219188A2200EE32D3 /* UmpleModelMenuViewController.m */; };
+		169B7A0A1918AAA400EE32D3 /* UmpleClassEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 169B7A081918AAA400EE32D3 /* UmpleClassEditorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,11 @@
 		163ED6B419087BCE00DDFDF5 /* UmpleMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmpleMethod.h; sourceTree = "<group>"; };
 		163ED6B519087BCE00DDFDF5 /* UmpleMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmpleMethod.m; sourceTree = "<group>"; };
 		1648D927190AD29C00D459BD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		169B79FF1918734C00EE32D3 /* UmpleMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UmpleMenuView.xib; sourceTree = "<group>"; };
+		169B7A0119188A2200EE32D3 /* UmpleModelMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmpleModelMenuViewController.h; sourceTree = "<group>"; };
+		169B7A0219188A2200EE32D3 /* UmpleModelMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmpleModelMenuViewController.m; sourceTree = "<group>"; };
+		169B7A071918AAA400EE32D3 /* UmpleClassEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmpleClassEditorViewController.h; sourceTree = "<group>"; };
+		169B7A081918AAA400EE32D3 /* UmpleClassEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmpleClassEditorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,9 +136,14 @@
 		163ED67A190784B000DDFDF5 /* UmpleApp */ = {
 			isa = PBXGroup;
 			children = (
+				169B7A071918AAA400EE32D3 /* UmpleClassEditorViewController.h */,
+				169B7A081918AAA400EE32D3 /* UmpleClassEditorViewController.m */,
 				163ED683190784B000DDFDF5 /* UmpleAppDelegate.h */,
 				163ED684190784B000DDFDF5 /* UmpleAppDelegate.m */,
 				163ED686190784B000DDFDF5 /* Main.storyboard */,
+				169B7A0119188A2200EE32D3 /* UmpleModelMenuViewController.h */,
+				169B7A0219188A2200EE32D3 /* UmpleModelMenuViewController.m */,
+				169B79FF1918734C00EE32D3 /* UmpleMenuView.xib */,
 				163ED689190784B000DDFDF5 /* UmpleViewController.h */,
 				163ED68A190784B000DDFDF5 /* UmpleViewController.m */,
 				163ED6B119087A4D00DDFDF5 /* UmpleAttribute.h */,
@@ -254,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				163ED68D190784B000DDFDF5 /* Images.xcassets in Resources */,
+				169B7A001918734C00EE32D3 /* UmpleMenuView.xib in Resources */,
 				163ED67F190784B000DDFDF5 /* InfoPlist.strings in Resources */,
 				163ED688190784B000DDFDF5 /* Main.storyboard in Resources */,
 			);
@@ -275,6 +289,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				163ED6B319087A4D00DDFDF5 /* UmpleAttribute.m in Sources */,
+				169B7A0A1918AAA400EE32D3 /* UmpleClassEditorViewController.m in Sources */,
+				169B7A0319188A2200EE32D3 /* UmpleModelMenuViewController.m in Sources */,
 				163ED6AB1907866500DDFDF5 /* UmpleClass.m in Sources */,
 				163ED6B619087BCE00DDFDF5 /* UmpleMethod.m in Sources */,
 				163ED685190784B000DDFDF5 /* UmpleAppDelegate.m in Sources */,

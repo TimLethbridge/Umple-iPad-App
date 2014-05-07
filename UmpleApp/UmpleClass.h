@@ -22,4 +22,6 @@
 -(id) initWithDictionary:(NSDictionary*) umpleDict;
 -(void) update;
 -(NSDictionary*) json;
+-(void) constructClassModel;
+-(void) updateClassModel;
 @end

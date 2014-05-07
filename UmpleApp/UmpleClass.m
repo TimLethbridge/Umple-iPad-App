@@ -75,6 +75,11 @@
     [self.titleLabel setLineBreakMode:NSLineBreakByWordWrapping];
 }
 
+-(void) updateClassModel
+{
+    [self setTitle:[self constructTitle] forState:UIControlStateNormal];
+}
+
 -(NSString*) constructTitle
 {
     NSMutableString *classTitle = [NSMutableString new];

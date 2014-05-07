@@ -12,6 +12,17 @@
 
 @synthesize type, name;
 
+-(id) init
+{
+    self = [super init];
+    if(self)
+    {
+        self.type = [NSString new];
+        self.name = [NSString new];
+    }
+    return self;
+}
+
 -(id) initWithDictionary:(NSDictionary*)attrDictionary
 {
     self = [super init];

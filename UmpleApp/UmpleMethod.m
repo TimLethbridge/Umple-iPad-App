@@ -12,6 +12,19 @@
 
 @synthesize visibility, type, name, parameters;
 
+-(id) init
+{
+    self = [super init];
+    if(self)
+    {
+        self.name = [NSString new];
+        self.type = [NSString new];
+        self.visibility = [NSString new];
+        self.parameters = [NSMutableArray new];
+    }
+    return self;
+}
+
 -(id) initWithDictionary:(NSDictionary*)methodDictionary
 {
     self = [super init];

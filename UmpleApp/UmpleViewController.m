@@ -22,24 +22,45 @@
     NSError *e;
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
     
-    CGRect contentFrame = CGRectMake(0,0,self.view.frame.size.width*1.1, self.view.frame.size.height*1.1);
-    self.umpleScrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    //Set the content frame of the Umple Diagram
+    //Needed for the scrollview
+    CGRect contentFrame = CGRectMake(0,0,self.view.frame.size.width*1.5, self.view.frame.size.height*1.5);
+    
+    //Set Required Setting for Scroll View
     self.umpleScrollView.delegate = self;
-    self.umpleScrollView.minimumZoomScale=1;
+    self.umpleScrollView.minimumZoomScale=0.9;
     self.umpleScrollView.maximumZoomScale=4.0;
     self.umpleScrollView.contentSize = CGSizeMake(contentFrame.size.width, contentFrame.size.height);
     [self.umpleScrollView setScrollEnabled:YES];
     
-    [self.view addSubview:self.umpleScrollView];
-    
+    //Going to remove this
+    [self.umpleMenuScrollView setScrollEnabled:YES];
+    self.umpleMenuScrollView.contentSize = CGSizeMake(self.umpleMenuScrollView.frame.size.width*2, self.umpleMenuScrollView.frame.size.height);
+    UIView* umpleMenuView = [[[NSBundle mainBundle] loadNibNamed:@"UmpleMenuView" owner:self options:nil] objectAtIndex:0];
+    [self.umpleMenuScrollView addSubview:umpleMenuView];
+
+    //Inner view inside the scroll view
+    //This is where the elements are drawn
     self.umpleView = [[UIView alloc]initWithFrame:contentFrame];
     
+    //This is a subview of umpleView that contains association drawing
+    self.umpleAssocView = [[UIView alloc] initWithFrame:contentFrame];
+    [self.umpleAssocView setBackgroundColor:[UIColor clearColor]];
+    [self.umpleView addSubview:self.umpleAssocView];
+    [self.umpleAssocView.layer setDelegate:self];
+    
+    //Adding the umpleView inside the umpleScrollView
     [self.umpleScrollView addSubview:self.umpleView];
     
+    //Storing umple classes created from JSON
     self.umpleClasses = [NSMutableDictionary new];
     
+    //Extracting the classes element in the json
     NSArray* umpClassArray = [dict objectForKey:@"umpleClasses"];
 
+    //Iterate through classes in JSON
+    //Create an UmpleClass, add action to it
+    //Store in a dictionary
     for(NSDictionary* umpleDict in umpClassArray)
     {
         UmpleClass *umpClass = [[UmpleClass alloc] initWithDictionary:umpleDict];
@@ -49,15 +70,19 @@
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
         tapGesture.numberOfTapsRequired = 2;
         [umpClass addGestureRecognizer:tapGesture];
+        //Using the class_id as the key
         [self.umpleClasses setObject:umpClass forKey:umpClass.class_id];
     }
     
+    //Storing umple associations created from JSON
     self.umpleAssociations = [NSMutableDictionary new];
     
+    //Extracting the associations element in the json
     NSArray* umpAssocArray = [dict objectForKey:@"umpleAssociations"];
     
-    self.umpleClassesToAssociations = [NSMutableDictionary new];
-    
+    //Iterate through associations in JSON
+    //Create an UmpleAssociation, add action to it
+    //Store in a dictionary
     for(NSDictionary* umpleDict in umpAssocArray)
     {
         UmpleAssociation *umpAssoc = [[UmpleAssociation alloc] initWithDictionary:umpleDict UmpleCasses:self.umpleClasses Frame:contentFrame];
@@ -67,26 +92,22 @@
         [umpAssoc addGestureRecognizer:tapGesture];
         
         [self.umpleAssociations setObject:umpAssoc forKey:umpAssoc.association_id];
-
-        //This is used to redraw the association lines efficiently
-        if(![self.umpleClassesToAssociations objectForKey:umpAssoc.classOneId.class_id])
-        {
-            [self.umpleClassesToAssociations setObject:[NSMutableArray new] forKey:umpAssoc.classOneId.class_id];
-        }
-        if(![self.umpleClassesToAssociations objectForKey:umpAssoc.classTwoId.class_id])
-        {
-            [self.umpleClassesToAssociations setObject:[NSMutableArray new] forKey:umpAssoc.classTwoId.class_id];
-        }
-        
-        NSMutableArray* umpArr = [self.umpleClassesToAssociations objectForKey:umpAssoc.classOneId.class_id];
-        [umpArr addObject:umpAssoc];
-        umpArr = [self.umpleClassesToAssociations objectForKey:umpAssoc.classTwoId.class_id];
-        [umpArr addObject:umpAssoc];
-        
     }
     
+    //Adding Umple Association View Layer
+    //CALayer draws the elements efficiently
+    [self.umpleAssocView.layer setNeedsDisplay];
+    [self.umpleAssocView.layer setBackgroundColor:[[UIColor clearColor] CGColor]];
+    
+    //Create the Umple Diagram
     [self createUmpleDiagram];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    //Initialize ClassEditor
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self.umpleClassEditorViewController = [storyboard instantiateViewControllerWithIdentifier:@"UmpleClassEditor"];
+    self.umpleClassEditorNavController = [[UINavigationController alloc] initWithRootViewController:self.umpleClassEditorViewController];
+    self.umpleClassEditorViewController.delegate = self;
+    self.umpleClassPopoverController = [[UIPopoverController alloc] initWithContentViewController:self.umpleClassEditorNavController];
 }
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender {
@@ -95,6 +116,9 @@
         if([sender.view isKindOfClass:[UmpleClass class]])
         {
             UmpleClass* umpClass = (UmpleClass*)[sender view];
+            self.umpleClassEditorViewController.umpleClass = umpClass;
+            [self.umpleClassEditorViewController.tableView reloadData];
+            [self.umpleClassPopoverController presentPopoverFromRect:umpClass.frame inView:self.umpleScrollView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
             [umpClass setBackgroundColor:[UIColor blueColor]];
         }
         else if([sender.view isKindOfClass:[UmpleAssociation class]])
@@ -131,19 +155,8 @@
     
     [umpleClass update];
 
-    NSMutableArray* umpAssocArr = [self.umpleClassesToAssociations objectForKey:umpleClass.class_id];
+    [self.umpleAssocView.layer setNeedsDisplay];
     
-    [self redrawAssociation:umpAssocArr];
-    
-//    [self setNeedsDisplay];
-    
-}
-
--(void) redrawAssociation : (NSMutableArray*) subviews{
-    dispatch_async(dispatch_get_main_queue(), ^(void){
-        [subviews makeObjectsPerformSelector:@selector(setNeedsDisplay)];
-//        [self.view setNeedsDisplay];
-    });
 }
 
 
@@ -226,13 +239,76 @@
     // choose an origin so as to get the right center.
     zoomRect.origin.x = center.x - (zoomRect.size.width  / 2.0);
     zoomRect.origin.y = center.y - (zoomRect.size.height / 2.0);
-    
+        
     return zoomRect;
 }
 
 -(UIView*) viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
+
     return self.umpleView;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"UmpleAddMenu"])
+    {
+        UmpleModelMenuViewController* vc = [segue destinationViewController];
+        UIStoryboardPopoverSegue *popoverSegue;
+        popoverSegue = (UIStoryboardPopoverSegue*)segue;
+        vc.popoverController = popoverSegue.popoverController;
+        vc.delegate = self;
+    }
+}
+
+-(void) addUmpleClassSelected:(UITableViewController*) tableViewController
+{
+    if([tableViewController isKindOfClass:[UmpleModelMenuViewController class]])
+    {
+        UmpleClass* umpleNewClass = [[UmpleClass alloc] init];
+        [umpleNewClass addTarget:self action:@selector(umpleClassIsDragged:withEvent:) forControlEvents:UIControlEventTouchDragInside];
+        [umpleNewClass addTarget:self action:@selector(umpleClassIsSelected:withEvent:) forControlEvents:UIControlEventTouchDown];
+        [umpleNewClass addTarget:self action:@selector(umpleClassDraggingEnded:withEvent:) forControlEvents:UIControlEventTouchUpInside];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+        tapGesture.numberOfTapsRequired = 2;
+        [umpleNewClass addGestureRecognizer:tapGesture];
+        umpleNewClass.name = @"New Class";
+        umpleNewClass.position = CGRectMake(100, 100, 200, 100);
+        umpleNewClass.class_id = @"NewClass";
+        [self.umpleClasses setObject:umpleNewClass forKey:umpleNewClass.class_id];
+        [umpleNewClass constructClassModel];
+        [self.umpleView addSubview:umpleNewClass];
+        
+        self.umpleClassEditorViewController.umpleClass = umpleNewClass;
+        [self.umpleClassEditorViewController.tableView reloadData];
+        [self.umpleClassPopoverController presentPopoverFromRect:umpleNewClass.frame inView:self.umpleScrollView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        [umpleNewClass setBackgroundColor:[UIColor blueColor]];
+    }
+}
+
+-(void) finishedEditingClass:(UmpleClass *)umpleClass
+{
+    [umpleClass updateClassModel];
+    [self.umpleClasses setObject:umpleClass forKey:umpleClass.class_id];
+    [self.umpleClassPopoverController dismissPopoverAnimated:YES];
+}
+
+- (void) drawLayer:(CALayer*) layer inContext:(CGContextRef) ctx
+{
+    
+    CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
+    CGContextSetLineWidth(ctx, 2);
+    
+    for(UmpleAssociation* umpAssoc in [self.umpleAssociations allValues])
+    {
+        UmpleClass* umpClass1 = umpAssoc.classOneId;
+        UmpleClass* umpClass2 = umpAssoc.classTwoId;
+        CGContextMoveToPoint(ctx, umpClass1.position.origin.x + umpClass1.position.size.width / 2, umpClass1.position.origin.y + umpClass1.position.size.height / 2);
+        CGContextAddLineToPoint(ctx, umpClass2.position.origin.x + umpClass2.position.size.width / 2, umpClass2.position.origin.y + umpClass1.position.size.height / 2);
+        
+        CGContextStrokePath(ctx);
+    }
+    
 }
 
 @end
