@@ -22,6 +22,7 @@
 @property id <UmpleClassEditorViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) UmpleClass* umpleClass;
+@property (strong, nonatomic) UmpleClass* umpleClassCopy;
 
 @property (strong, nonatomic) NSMutableArray* umpleNewAttributes;
 @property (strong, nonatomic) NSMutableArray* umpleNewMethods;

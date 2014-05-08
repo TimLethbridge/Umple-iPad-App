@@ -10,7 +10,7 @@
 #import "UmpleAttribute.h"
 #import "UmpleMethod.h"
 
-@interface UmpleClass : UIButton
+@interface UmpleClass : UIButton <NSCopying>
 
 @property (nonatomic, strong) NSString* class_id;
 @property (nonatomic, strong) NSString* name;
@@ -24,4 +24,5 @@
 -(NSDictionary*) json;
 -(void) constructClassModel;
 -(void) updateClassModel;
+-(id)copy;
 @end

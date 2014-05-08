@@ -133,4 +133,17 @@
              };
 }
 
+// In the implementation
+-(id)copy
+{
+    UmpleClass *another = [[UmpleClass alloc] init];
+    another.class_id = [class_id copy];
+    another.name = [name copy];
+    another.position = CGRectMake(position.origin.x, position.origin.y, position.size.width, position.size.height);
+    another.attributes = [attributes copy];
+    another.methods = [methods copy];
+    another.displayColor = [displayColor copy];
+    return another;
+}
+
 @end
