@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161690511926773A00795532 /* UmpleTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 161690501926773A00795532 /* UmpleTextField.m */; };
 		163ED675190784B000DDFDF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163ED674190784B000DDFDF5 /* Foundation.framework */; };
 		163ED677190784B000DDFDF5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163ED676190784B000DDFDF5 /* CoreGraphics.framework */; };
 		163ED679190784B000DDFDF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163ED678190784B000DDFDF5 /* UIKit.framework */; };
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1616904F1926773A00795532 /* UmpleTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmpleTextField.h; sourceTree = "<group>"; };
+		161690501926773A00795532 /* UmpleTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmpleTextField.m; sourceTree = "<group>"; };
 		163ED671190784B000DDFDF5 /* UmpleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UmpleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		163ED674190784B000DDFDF5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		163ED676190784B000DDFDF5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,6 +139,8 @@
 		163ED67A190784B000DDFDF5 /* UmpleApp */ = {
 			isa = PBXGroup;
 			children = (
+				1616904F1926773A00795532 /* UmpleTextField.h */,
+				161690501926773A00795532 /* UmpleTextField.m */,
 				169B7A071918AAA400EE32D3 /* UmpleClassEditorViewController.h */,
 				169B7A081918AAA400EE32D3 /* UmpleClassEditorViewController.m */,
 				163ED683190784B000DDFDF5 /* UmpleAppDelegate.h */,
@@ -289,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				163ED6B319087A4D00DDFDF5 /* UmpleAttribute.m in Sources */,
+				161690511926773A00795532 /* UmpleTextField.m in Sources */,
 				169B7A0A1918AAA400EE32D3 /* UmpleClassEditorViewController.m in Sources */,
 				169B7A0319188A2200EE32D3 /* UmpleModelMenuViewController.m in Sources */,
 				163ED6AB1907866500DDFDF5 /* UmpleClass.m in Sources */,

@@ -10,6 +10,7 @@
 #import "UmpleClass.h"
 #import "UmpleAttribute.h"
 #import "UmpleMethod.h"
+#import "UmpleTextField.h"
 
 @protocol UmpleClassEditorViewControllerDelegate <NSObject>
 
@@ -24,8 +25,4 @@
 @property (strong, nonatomic) UmpleClass* umpleClass;
 @property (strong, nonatomic) UmpleClass* umpleClassCopy;
 
-@property (strong, nonatomic) NSMutableArray* umpleNewAttributes;
-@property (strong, nonatomic) NSMutableArray* umpleNewMethods;
-
-@property (strong, nonatomic) NSMutableDictionary* cacheUmpleAttributes;
 @end

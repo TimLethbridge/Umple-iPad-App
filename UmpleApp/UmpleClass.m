@@ -134,16 +134,50 @@
 }
 
 // In the implementation
--(id)copy
+-(UmpleClass*)copy
 {
     UmpleClass *another = [[UmpleClass alloc] init];
     another.class_id = [class_id copy];
     another.name = [name copy];
     another.position = CGRectMake(position.origin.x, position.origin.y, position.size.width, position.size.height);
-    another.attributes = [attributes copy];
-    another.methods = [methods copy];
+    another.attributes = [[NSMutableArray alloc] init];
+    
+    for(UmpleAttribute* attr in self.attributes)
+    {
+        [another.attributes addObject:[attr copy]];
+    }
+    another.methods = [[NSMutableArray alloc] init];
+    for(UmpleMethod* method in self.methods)
+    {
+        [another.methods addObject:[method copy]];
+    }
+    
     another.displayColor = [displayColor copy];
     return another;
+}
+
+-(void)copy:(UmpleClass*)umpClass
+{
+    self.class_id = [umpClass.class_id copy];
+    self.name = [umpClass.name copy];
+    self.position = CGRectMake(umpClass.position.origin.x, umpClass.position.origin.y, umpClass.position.size.width, umpClass.position.size.height);
+    [self.attributes removeAllObjects];
+    [self.methods removeAllObjects];
+    
+    for(UmpleAttribute* attr in umpClass.attributes)
+    {
+        if(attr.type.length != 0 && attr.name.length != 0)
+            [self.attributes addObject:[attr copy]];
+    }
+
+    for(UmpleMethod* method in umpClass.methods)
+    {
+        if(method.type.length != 0 && method.name.length != 0)
+            [self.methods addObject:method];
+    }
+    
+    self.displayColor = [umpClass.displayColor copy];
+
 }
 
 @end

@@ -25,4 +25,6 @@
 -(void) constructClassModel;
 -(void) updateClassModel;
 -(id)copy;
+-(void)copy:(UmpleClass*)umpClass;
+
 @end

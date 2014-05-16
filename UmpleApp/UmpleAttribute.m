@@ -17,8 +17,8 @@
     self = [super init];
     if(self)
     {
-        self.type = [NSString new];
-        self.name = [NSString new];
+        self.type = @"";
+        self.name = @"";
     }
     return self;
 }
@@ -52,6 +52,14 @@
              @"type" : self.type,
              @"name" : self.name
              };
+}
+
+-(UmpleAttribute*) copy
+{
+    UmpleAttribute* copied = [UmpleAttribute new];
+    copied.type = [self.type copy];
+    copied.name = [self.name copy];
+    return copied;
 }
 
 @end

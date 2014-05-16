@@ -74,4 +74,13 @@
              };
 }
 
+-(UmpleMethod*) copy
+{
+    UmpleMethod* copied = [UmpleMethod new];
+    copied.visibility = [self.visibility copy];
+    copied.type = [self.type copy];
+    copied.name = [self.name copy];
+    return copied;
+}
+
 @end

@@ -20,5 +20,6 @@
 
 -(id) initWithDictionary:(NSDictionary*)attrDictionary;
 -(NSDictionary*) json;
+-(UmpleMethod*) copy;
 
 @end

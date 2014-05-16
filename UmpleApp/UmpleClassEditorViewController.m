@@ -17,25 +17,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.umpleNewAttributes = [NSMutableArray new];
-    self.umpleNewMethods = [NSMutableArray new];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    if(self.umpleNewAttributes)
-    {
-        [self.umpleNewAttributes removeAllObjects];
-    }
-    if(self.umpleNewMethods)
-    {
-        [self.umpleNewMethods removeAllObjects];
-    }
     self.umpleClassCopy = [self.umpleClass copy];
-    [self.tableView reloadData];
+    [self.tableView reloadData]; 
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,9 +61,9 @@
     if(section == 0)
         return 1;
     if(section == 1)
-        return [self.umpleClassCopy.attributes count] + [self.umpleNewAttributes count] + 1;
+        return [self.umpleClassCopy.attributes count] + 1;
     if(section == 2)
-        return [self.umpleClassCopy.methods count] + [self.umpleNewMethods count] + 1;
+        return [self.umpleClassCopy.methods count] + 1;
     return 0;
 }
 
@@ -83,30 +71,33 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-    if(indexPath.section == 0 && indexPath.row == 0)
+    if(indexPath.section == 0 && indexPath.row == 0) //Class Name
     {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Class" forIndexPath:indexPath];
-        UITextField* textField = (UITextField*) [cell viewWithTag:1];
+        UmpleTextField* textField = (UmpleTextField*) [cell viewWithTag:1];
+        textField.umpleType = @"class";
+        textField.indexPath = indexPath;
+        
         textField.text = self.umpleClassCopy.name;
         textField.delegate = self;
     }
     else if(indexPath.section == 1)
     {
-        if(indexPath.row != self.umpleClassCopy.attributes.count + self.umpleNewAttributes.count)
+        if(indexPath.row != self.umpleClassCopy.attributes.count) //Attributes
         {
             cell = [tableView dequeueReusableCellWithIdentifier:@"Attribute" forIndexPath:indexPath];
-            UITextField* typeField = (UITextField*) [cell viewWithTag:1];
-            UITextField* nameField = (UITextField*) [cell viewWithTag:2];
-            if(indexPath.row < self.umpleClassCopy.attributes.count)
-            {
-                typeField.text = [(UmpleAttribute*)[[self.umpleClassCopy attributes] objectAtIndex:indexPath.row] type];
-                nameField.text = [(UmpleAttribute*)[[self.umpleClassCopy attributes] objectAtIndex:indexPath.row] name];
-            }
-            else
-            {
-                typeField.text = @"";
-                nameField.text = @"";
-            }
+            
+            UmpleTextField* typeField = (UmpleTextField*) [cell viewWithTag:1];
+            typeField.umpleType = @"Type";
+            typeField.indexPath = indexPath;
+            
+            UmpleTextField* nameField = (UmpleTextField*) [cell viewWithTag:2];
+            nameField.umpleType = @"Name";
+            nameField.indexPath = indexPath;
+            
+            typeField.text = [(UmpleAttribute*)[[self.umpleClassCopy attributes] objectAtIndex:indexPath.row] type];
+            nameField.text = [(UmpleAttribute*)[[self.umpleClassCopy attributes] objectAtIndex:indexPath.row] name];
+                
             typeField.delegate = self;
             nameField.delegate = self;
         }
@@ -115,23 +106,23 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"AddAttribute" forIndexPath:indexPath];
         }
     }
-    else if(indexPath.section == 2)
+    else if(indexPath.section == 2) //Methods
     {
-        if(indexPath.row != self.umpleClassCopy.methods.count + self.umpleNewMethods.count)
+        if(indexPath.row != self.umpleClassCopy.methods.count)
         {
             cell = [tableView dequeueReusableCellWithIdentifier:@"Method" forIndexPath:indexPath];
-            UITextField* typeField = (UITextField*) [cell viewWithTag:1];
-            UITextField* nameField = (UITextField*) [cell viewWithTag:2];
-            if(indexPath.row < self.umpleClassCopy.methods.count)
-            {
-                typeField.text = [(UmpleAttribute*)[[self.umpleClassCopy methods] objectAtIndex:indexPath.row] type];
-                nameField.text = [(UmpleAttribute*)[[self.umpleClassCopy methods] objectAtIndex:indexPath.row] name];
-            }
-            else
-            {
-                typeField.text = @"";
-                nameField.text = @"";
-            }
+
+            UmpleTextField* typeField = (UmpleTextField*) [cell viewWithTag:1];
+            typeField.umpleType = @"Type";
+            typeField.indexPath = indexPath;
+            
+            UmpleTextField* nameField = (UmpleTextField*) [cell viewWithTag:2];
+            nameField.umpleType = @"Name";
+            nameField.indexPath = indexPath;
+            
+            typeField.text = [(UmpleMethod*)[[self.umpleClassCopy methods] objectAtIndex:indexPath.row] type];
+            nameField.text = [(UmpleMethod*)[[self.umpleClassCopy methods] objectAtIndex:indexPath.row] name];
+            
             typeField.delegate = self;
             nameField.delegate = self;
         }
@@ -148,40 +139,54 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 1 && indexPath.row == (self.umpleNewAttributes.count + self.umpleClassCopy.attributes.count))
+    if(indexPath.section == 1 && indexPath.row == self.umpleClassCopy.attributes.count)
     {
-        [self.umpleNewAttributes addObject:[UmpleAttribute new]];
+        
+        [self.umpleClassCopy.attributes addObject:[UmpleAttribute new]];
         [self.tableView reloadData];
     }
-    else if(indexPath.section == 2 && indexPath.row == (self.umpleNewMethods.count + self.umpleClassCopy.methods.count))
+    else if(indexPath.section == 2 && indexPath.row == self.umpleClassCopy.methods.count)
     {
-        [self.umpleNewMethods addObject:[UmpleMethod new]];
+        [self.umpleClassCopy.methods addObject:[UmpleMethod new]];
         [self.tableView reloadData];
     }
 }
 
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
+    if(indexPath.section == 0)
+        return NO;
+    else if(indexPath.section == 1 && indexPath.row == self.umpleClassCopy.attributes.count)
+        return NO;
+    else if(indexPath.section == 2 && indexPath.row == self.umpleClassCopy.methods.count)
+        return NO;
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        if(indexPath.section == 1)
+        {
+            [self.umpleClassCopy.attributes removeObjectAtIndex:indexPath.row];
+        }
+        else if(indexPath.section == 2)
+        {
+            [self.umpleClassCopy.methods removeObjectAtIndex:indexPath.row];
+        }
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -217,45 +222,46 @@
 */
 //TODO Change this name
 - (IBAction)finishedEditingClass:(id)sender {
-
-    //Class Name
-    UITableViewCell *cellName = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    UITextField* classNameField = (UITextField*) [cellName viewWithTag:1];
-    self.umpleClass.name = [classNameField text];
-    
-    //Attributes
-    for(int i = 0; i < self.umpleNewAttributes.count; i++)
-    {
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:(i + self.umpleClassCopy.attributes.count) inSection:1]];
-        UITextField* typeField = (UITextField*) [cell viewWithTag:1];
-        UITextField* nameField = (UITextField*) [cell viewWithTag:2];
-        if(typeField.text.length != 0 && nameField.text.length != 0)
-        {
-            UmpleAttribute* umpAttr = [UmpleAttribute new];
-            umpAttr.name = nameField.text;
-            umpAttr.type = typeField.text;
-            [self.umpleClass.attributes addObject:umpAttr];
-        }
-    }
-    
-    //Methods
-    for(int i = 0; i < self.umpleNewMethods.count; i++)
-    {
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:(i + self.umpleClassCopy.methods.count) inSection:2]];
-        UITextField* typeField = (UITextField*) [cell viewWithTag:1];
-        UITextField* nameField = (UITextField*) [cell viewWithTag:2];
-        NSLog(@"In Here");
-        if(typeField.text.length != 0 && nameField.text.length != 0)
-        {
-            UmpleMethod* umpMethod = [UmpleMethod new];
-            umpMethod.name = nameField.text;
-            umpMethod.type = typeField.text;
-            [self.umpleClass.methods addObject:umpMethod];
-            NSLog(@"Added");
-        }
-    }
-
+    [self.umpleClass copy:self.umpleClassCopy];
     [self.delegate finishedEditingClass:self.umpleClass];
+}
+
+
+
+-(BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    UmpleTextField *umpTextField = (UmpleTextField*) textField;
+    NSString *newString = [umpTextField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if(umpTextField.indexPath.section == 0) //Class Name
+    {
+        self.umpleClassCopy.name = newString;
+    }
+    else if(umpTextField.indexPath.section == 1) //Attribute Name
+    {
+        UmpleAttribute* umpAttr = [self.umpleClassCopy.attributes objectAtIndex:umpTextField.indexPath.row];
+        if([umpTextField.umpleType isEqualToString:@"Type"])
+        {
+            umpAttr.type = newString;
+        }
+        else if([umpTextField.umpleType isEqualToString:@"Name"])
+        {
+            umpAttr.name = newString;
+        }
+    }
+    else if(umpTextField.indexPath.section == 2) //Method Name
+    {
+        UmpleMethod* umpMethod = [self.umpleClassCopy.methods objectAtIndex:umpTextField.indexPath.row];
+        if([umpTextField.umpleType isEqualToString:@"Type"])
+        {
+            umpMethod.type = newString;
+        }
+        else if([umpTextField.umpleType isEqualToString:@"Name"])
+        {
+            umpMethod.name = newString;
+        }
+    }
+    return YES;
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
